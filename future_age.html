@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  body{
+    font-family: sans-serif;
+    background: orange;
+    margin:100px;
+    padding:10px;
+  }
+  label{
+    display:inline-block;
+    width:220px;
+  }
+  input{
+    width:100px;
+  }
+
+  </style>
+
+
+  <body>
+    <h1>How old will you be?</h1>
+
+    <form name="future_age">
+    <label>Enter the month you are born:</label> <input type="text" class="textbox" id="born_month" name="born_month"><br>
+    <label>Enter the year you are born:</label> <input type="text" class="textbox" id="born_year" name="born_year"><br>
+    <label>Enter the future month: </label> <input type="text" class="textbox" id="future_month" name="future_month"><br>
+    <label>Enter future year: </label> <input type="text" class="textbox" id="future_year" name="future_year"><br>
+  </form><br>
+
+  <form name="result">
+    For your future age, Click Here: <input type = "button" class="button" name="future" value="Enter" onClick="plus()"><br>
+  </form>
+
+  <p id="output"></p>
+
+  <script>
+  function plus(){
+  var bm = document.getElementById("born_month").value;
+  var by = document.getElementById("born_year").value;
+  var fm = document.getElementById("future_month").value;
+  var fy = document.getElementById("future_year").value;
+
+  var fay = +fy - +by - 1;
+  var fam = 12 - +bm + +fm;
+  if(fam>=12){
+      fay = +fay + 1;
+      fam = +fam - 12;
+  }
+
+
+  document.getElementById("output").innerHTML = "You will be either " + fay +" years and " + fam +" month old in " + fm + "/" + fy + "!";
+
+
+  }
+  </script>
+  </body>
+</html>
